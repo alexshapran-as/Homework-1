@@ -4,6 +4,7 @@
 Группа: ИУ8-14
 */
 #include <iostream>
+#include <stdio.h>
 #include <math.h>
 #include <conio.h>
 #include <stdlib.h>
@@ -14,16 +15,27 @@ using namespace std;
 
 int main(void)
 {
-	int size = 0;
+	unsigned int size = 0;
+	unsigned int size_b = 0;
 	double* gamma = 0;
 	int* x = 0;
 	int* y = 0;
-	
-	const char txt[] = {'H', 'i'}; // символы сообщения для шифрования
-	cout << endl << "Data size: " << sizeof(txt) << " bytes" << endl;
-	cout << "Message text: "<< txt << endl << endl << "Encryption" << endl;
+	char* txt = {0}; 
 
-		for ( int i = 0; txt[i] != '\0';  i++ ) size = size + 1; // вычисление кол-ва символов сообщения
+	txt = (char *)malloc( size*sizeof(char) );
+
+	cout << "Print number of letters: ";
+	cin >> size;
+	cout << "Print text: ";
+	for ( int i = 0; i < size; i++ ) cin >> txt[i];
+
+	cout << endl << "Data size: "; 
+	for (int i = 0; i < size; i++ ) size_b = size_b+sizeof(txt[i]);
+	cout << size_b << " bytes" << endl;
+
+	cout << "Message text: ";
+	for ( int i = 0; i < size; i++ ) cout << txt[i];
+	cout << endl << "Encryption" << endl;
 	gamma = (double *)malloc( size*sizeof(double) ); // выделение памяти под гамму
 	
 	// Печать символов сообщения в десятичной системе счисления
