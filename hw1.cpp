@@ -21,11 +21,10 @@ int main(void)
 	int* x = 0;
 	int* y = 0;
 	char* txt = {0}; 
-
-	txt = (char *)malloc( size*sizeof(char) );
-
+	
 	cout << "Print number of letters: ";
 	cin >> size;
+	txt = (char *)malloc( size*sizeof(char) );
 	cout << "Print text: ";
 	for ( int i = 0; i < size; i++ ) cin >> txt[i];
 
